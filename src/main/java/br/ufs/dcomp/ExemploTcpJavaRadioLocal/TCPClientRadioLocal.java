@@ -1,11 +1,12 @@
 /**
  * @author Tarcisio da Rocha (Prof. DCOMP/UFS)
  */
-package br.ufs.dcomp.ExemploTcpJava;
+package br.ufs.dcomp.ExemploTcpJavaRadioLocal;
 
 import java.net.*;
 import java.io.*;
-public class TCPClient{
+import java.util.Scanner;
+public class TCPClientRadioLocal{
     public static void main(String[] args){
         try {
             System.out.print("[ Conectando com o Servidor TCP    ..................  ");
@@ -14,7 +15,14 @@ public class TCPClient{
             
             InputStream is = sock.getInputStream(); // Canal de entrada de dados
             OutputStream os = sock.getOutputStream(); // Canal de saída de dados
-            String msg = "Olá, DCOMP!!!"; //Define uma mensagem String
+            
+            //INCREMENTO #02
+            //String msg = "Olá, DCOMP!!!"; //Define uma mensagem String
+            System.out.print("|  Escreva sua mensagem: \n> ");
+            Scanner sc = new Scanner(System.in);
+            String msg = sc.nextLine();
+            
+            
             byte[] buf = msg.getBytes(); // Obtendo a respresntação em bytes da mensagem
 
             System.out.print("[ Enviando mensagem    ..............................  ");
@@ -31,7 +39,7 @@ public class TCPClient{
             
             String msgReceiver = new String(bufReceiver); // Mapeando vetor de bytes recebido para String //Aqui mapea para String pois conhece que P1 enviou em String, dai P2 está mapeando para String
             
-            System.out.println("  Mensagem recebida: "+ msgReceiver);
+            System.out.println("|  Mensagem recebida: "+ msgReceiver);
             
             
         }catch(Exception e){System.out.println(e);}    

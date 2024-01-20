@@ -1,11 +1,12 @@
 /**
  * @author Tarcisio da Rocha (Prof. DCOMP/UFS)
  */
-package br.ufs.dcomp.ExemploTcpJava;
+package br.ufs.dcomp.ExemploTcpJavaRadioLocal;
 
 import java.net.*;
 import java.io.*;
-public class TCPServer{
+import java.util.Scanner;
+public class TCPServerRadioLocal{
     public static void main(String[] args){
         
         try {
@@ -27,17 +28,15 @@ public class TCPServer{
             
             String msg = new String(buf); // Mapeando vetor de bytes recebido para String //Aqui mapea para String pois conhece que P1 enviou em String, dai P2 está mapeando para String
             
-            System.out.println("  Mensagem recebida: "+ msg);
-            System.out.println("  Teste");
+            System.out.println("|  Mensagem recebida: "+ msg);
             
             
-            //Incremento #01 - SERVIDOR ENVIAR MENSAGEM DE RETORNO
-            //Fazer com que o servidor após receber mensagem e imprimir, ele irá enviar uma mensagem de Resposta para o cliente e o cliente imprimi
-            System.out.println("  Teste");
-            String msgSend = "[STATUS] Sua mensagem foi enviada com sucesso! [STATUS]"; //Define uma mensagem String
-            System.out.println("  Teste");
-            byte[] bufSend = msgSend.getBytes(); // Obtendo a respresntação em bytes da mensagem
-            System.out.println("  Teste");
+            //Incremento #02
+            System.out.print("|  Escreva sua mensagem: \n> ");
+            Scanner sc = new Scanner(System.in);
+            String msgSend = sc.nextLine();
+            
+            byte[] bufSend = msgSend.getBytes(); // Obtendo a respresentação em bytes da mensagem
             
             System.out.print("[ Enviando mensagem de Resposta    ..................  ");
             os.write(bufSend); //o envio é interessado em enviar em bytes, por isso pega os bytes; aqui é o SEND, por trás, o SO chama o SEND
