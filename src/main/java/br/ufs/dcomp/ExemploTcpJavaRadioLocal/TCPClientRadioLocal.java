@@ -10,7 +10,8 @@ public class TCPClientRadioLocal{
     public static void main(String[] args){
         try {
             System.out.print("[ Conectando com o Servidor TCP    ..................  ");
-            Socket sock = new Socket("127.0.0.1", 3300); //Aqui usa o IP e a PORTA para estabelecer a conexão ; sock é a interface de Entrada e Saida IN OUT
+            //Socket sock = new Socket("127.0.0.1", 3300); //Aqui usa o IP e a PORTA para estabelecer a conexão ; sock é a interface de Entrada e Saida IN OUT
+            Socket sock = new Socket("44.203.151.60", 3300);
             System.out.println("[OK] ]");
             
             InputStream is = sock.getInputStream(); // Canal de entrada de dados

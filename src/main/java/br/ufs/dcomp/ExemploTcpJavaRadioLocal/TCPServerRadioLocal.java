@@ -11,7 +11,8 @@ public class TCPServerRadioLocal{
         
         try {
             System.out.print("[ Iniciando Servidor TCP    .........................  ");
-            ServerSocket ss = new ServerSocket(3300, 5, InetAddress.getByName("127.0.0.1")); //Essa linha representa as opreçãoes SOCKET, BIND e LISTEN; 3300 é a porta; 5 é o tamanho da lista de acesso; 3° parametro é o IP
+            //ServerSocket ss = new ServerSocket(3300, 5, InetAddress.getByName("127.0.0.1")); //Essa linha representa as opreçãoes SOCKET, BIND e LISTEN; 3300 é a porta; 5 é o tamanho da lista de acesso; 3° parametro é o IP
+            ServerSocket ss = new ServerSocket(3300, 5, InetAddress.getByName("172.31.16.139")); //Implementacao #03
             System.out.println("[OK] ]");
             
             System.out.print("[ Aquardando pedidos de conexão    ..................  ");
